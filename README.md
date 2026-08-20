@@ -2,7 +2,7 @@
 
 A currency converter that pulls real exchange rates from a free public API. No backend, no database, no login — open `index.html` and it works.
 
-**[Live demo →](#)** *(add your GitHub Pages link here after deploying)*
+**[Live demo →](https://arjayb.github.io/Rate-Board-Live-Currency-Converter/)**
 
 ![Rate Board screenshot](./screenshot.png)
 
