@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rate Board — Live Currency Converter</title>
+<meta name="description" content="A live currency converter with real exchange rates, no backend required." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ticker strip -->
+  <div class="ticker" aria-label="Live exchange rate ticker">
+    <div class="ticker__track" id="tickerTrack">
+      <span class="ticker__item">Loading live rates…</span>
+    </div>
+  </div>
+
+  <main class="board">
+    <header class="board__header">
+      <p class="eyebrow">Foreign Exchange · Live Feed</p>
+      <h1 class="headline">Rate Board</h1>
+      <p class="subhead">Real interbank rates, refreshed on every keystroke. No login, no backend, no catch.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="converter-heading">
+      <h2 id="converter-heading" class="sr-only">Currency converter</h2>
+
+      <div class="field field--amount">
+        <label for="amountInput">Amount</label>
+        <input
+          type="text"
+          inputmode="decimal"
+          id="amountInput"
+          class="amount-input"
+          value="1"
+          autocomplete="off"
+          spellcheck="false"
+        />
+      </div>
+
+      <div class="convert-row">
+        <div class="field">
+          <label for="fromSelect">From</label>
+          <select id="fromSelect" class="currency-select"></select>
+        </div>
+
+        <button id="swapBtn" class="swap-btn" type="button" aria-label="Swap currencies">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path d="M7 7h11l-3.2-3.2 1.4-1.4L21.6 7l-5.4 4.6-1.4-1.4L18 7H7V7Zm10 10H6l3.2 3.2-1.4 1.4L2.4 17l5.4-4.6 1.4 1.4L6 17h11v0Z" fill="currentColor"/>
+          </svg>
+        </button>
+
+        <div class="field">
+          <label for="toSelect">To</label>
+          <select id="toSelect" class="currency-select"></select>
+        </div>
+      </div>
+
+      <div class="result" id="resultWrap">
+        <div class="flip-display" id="flipDisplay" aria-live="polite"></div>
+        <div class="result__meta">
+          <span id="rateLine">—</span>
+          <span class="dot" aria-hidden="true">·</span>
+          <span id="updatedLine">—</span>
+        </div>
+      </div>
+
+      <p class="status" id="statusLine" role="status"></p>
+    </section>
+
+    <footer class="board__footer">
+      <p>Rates via <a href="https://frankfurter.dev" target="_blank" rel="noopener noreferrer">Frankfurter</a>, sourced from the European Central Bank. Updated on business days.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
